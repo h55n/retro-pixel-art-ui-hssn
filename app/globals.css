@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 300 80% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 142 70% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 196 80% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 142 70% 45%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .pixel-text {
+    font-family: monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    image-rendering: pixelated;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+
+  .pixel-title {
+    @apply pixel-text text-2xl font-bold;
+    letter-spacing: 0.15em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 0 10px rgba(128, 0, 255, 0.5);
+  }
+
+  .pixel-button {
+    @apply border-2 border-white bg-black text-white hover:bg-white hover:text-black transition-all duration-200;
+    image-rendering: pixelated;
+    transform-style: preserve-3d;
+    transition: all 0.15s ease;
+    position: relative;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+  }
+
+  .pixel-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .pixel-button:active {
+    transform: translateY(1px);
+  }
+
+  .pixel-card {
+    @apply border-4 border-black p-2 transition-all duration-300;
+    transform-style: preserve-3d;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  .pixel-card:hover {
+    transform: translateY(-5px) perspective(800px) rotateX(5deg);
+    box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-grid {
+    @apply grid gap-6;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  /* Seasonal character pixel art */
+  .pixel-spring-character {
+    @apply bg-green-400;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 L80 70 L20 70 Z' fill='%23000'/%3E%3Ccircle cx='40' cy='45' r='5' fill='%23000'/%3E%3Ccircle cx='60' cy='45' r='5' fill='%23000'/%3E%3Cpath d='M40 60 Q50 70 60 60' stroke='%23000' stroke-width='3' fill='none'/%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  .pixel-summer-character {
+    @apply bg-blue-400;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 L80 70 L20 70 Z' fill='%23000'/%3E%3Ccircle cx='40' cy='45' r='5' fill='%23000'/%3E%3Ccircle cx='60' cy='45' r='5' fill='%23000'/%3E%3Cpath d='M40 60 Q50 70 60 60' stroke='%23000' stroke-width='3' fill='none'/%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  .pixel-fall-character {
+    @apply bg-orange-400;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 L80 70 L20 70 Z' fill='%23000'/%3E%3Ccircle cx='40' cy='45' r='5' fill='%23000'/%3E%3Ccircle cx='60' cy='45' r='5' fill='%23000'/%3E%3Cpath d='M40 60 Q50 70 60 60' stroke='%23000' stroke-width='3' fill='none'/%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  .pixel-winter-character {
+    @apply bg-blue-400;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 L80 70 L20 70 Z' fill='%23000'/%3E%3Ccircle cx='40' cy='45' r='5' fill='%23000'/%3E%3Ccircle cx='60' cy='45' r='5' fill='%23000'/%3E%3Cpath d='M40 55 Q50 45 60 55' stroke='%23000' stroke-width='3' fill='none'/%3E%3C/svg%3E");
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+}
+
+/* Improved animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+  }
+}
+
+@keyframes parallax-slow {
+  from {
+    background-position: 0 bottom;
+  }
+  to {
+    background-position: 1000px bottom;
+  }
+}
+
+@keyframes parallax-medium {
+  from {
+    background-position: 0 bottom;
+  }
+  to {
+    background-position: 800px bottom;
+  }
+}
+
+@keyframes parallax-fast {
+  from {
+    background-position: 0 bottom;
+  }
+  to {
+    background-position: 500px bottom;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Transitions */
+.tab-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-transition {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-transition {
+  transition: all 0.2s ease;
+}
+
+.scale-transition {
+  transition: transform 0.2s ease;
+}
+
+/* Game environment styling */
+.game-environment {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  background-size: 100% 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+/* Improved CRT effect */
+.crt-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  opacity: 0.65;
+  transition: opacity 0.3s ease;
+}
+
+.crt-scanline {
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+}
+
+.crt-glow {
+  background: radial-gradient(circle at center, transparent 0, rgba(0, 0, 0, 0.15) 100%);
+}
+
+.crt-rgb {
+  background: repeating-linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+}
+
+/* Rarity colors */
+.rarity-common {
+  @apply bg-gray-500;
+  box-shadow: 0 0 10px rgba(160, 160, 160, 0.5);
+}
+
+.rarity-uncommon {
+  @apply bg-green-500;
+  box-shadow: 0 0 10px rgba(40, 200, 40, 0.5);
+}
+
+.rarity-rare {
+  @apply bg-blue-500;
+  box-shadow: 0 0 10px rgba(40, 100, 255, 0.5);
+}
+
+.rarity-epic {
+  @apply bg-purple-500;
+  box-shadow: 0 0 10px rgba(160, 40, 200, 0.5);
+}
+
+.rarity-legendary {
+  @apply bg-yellow-500;
+  box-shadow: 0 0 10px rgba(255, 200, 40, 0.6);
+}
+
+.rarity-mythic {
+  @apply bg-pink-500;
+  box-shadow: 0 0 10px rgba(255, 100, 160, 0.6);
+}
+
+/* Badge styling */
+.rarity-badge {
+  @apply inline-flex items-center justify-center rounded-sm px-2 py-1 text-xs font-semibold transition-all;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Collectible styling */
+.collectible-image {
+  @apply bg-white border-2 border-black relative overflow-hidden;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.grid-bg {
+  @apply absolute inset-0;
+  background-image: linear-gradient(to right, rgba(200, 200, 200, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 200, 200, 0.1) 1px, transparent 1px);
+  background-size: 8px 8px;
+}
